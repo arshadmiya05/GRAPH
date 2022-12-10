@@ -1,0 +1,22 @@
+  private:
+    void dfs(int node,vector<int> adj[],int vis[],vector<int> &list){
+        vis[node]=1; // node mark true
+        list.push_back(node);
+        //traverse all its neighbour
+        for(auto i:adj[node]){
+            if(!vis[i])
+            dfs(i,adj,vis,list);
+        }
+    }
+    
+    
+  public:
+    // Function to return a list containing the DFS traversal of the graph.
+    vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+        // Code here
+        int vis[V]={0}; // vertex/node/start
+        int start=0;
+        vector<int> list;
+        dfs(start,adj,vis,list);
+        return list;
+    }
